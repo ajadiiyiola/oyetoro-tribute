@@ -1,10 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { useState } from 'react';
 import Image from 'next/image';
 import { HERO_IMAGE, SECTION_IDS } from '@/lib/media-map';
 
 export function HeroPortrait() {
+  const { scrollY } = useScroll();
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (latest > 20) {
+      setHasScrolled(true);
+    }
+  });
   return (
     <section
       id={SECTION_IDS.hero}
@@ -45,6 +54,23 @@ export function HeroPortrait() {
           <span className="italic">Olajumoke Esther</span>
         </h1>
       </motion.div>
+      {!hasScrolled && (
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: [0, 6, 0] }}
+          transition={{
+            opacity: { duration: 1, delay: 2.2 },
+            y: { duration: 1.6, repeat: Infinity, ease: 'easeInOut' },
+          }}
+          className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-paper/75"
+          aria-hidden="true"
+        >
+          <span className="font-sans text-[9px] uppercase tracking-[0.28em]">
+            Scroll to continue
+          </span>
+          <span className="text-lg leading-none">↓</span>
+        </motion.div>
+      )}
     </section>
   );
 }
