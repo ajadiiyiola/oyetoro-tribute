@@ -57,11 +57,13 @@ export const FAMILY_GIRLS_IMAGE = {
 
 export const TRAVEL_VIDEO = {
   src: '/videos/travel-uk.mp4',
+  poster: '/images/travel-uk-poster.jpg',
   label: 'Travelling back to the UK',
 };
 
 export const FAMILY_HAIR_VIDEO = {
   src: '/videos/family-hair.mp4',
+  poster: '/images/family-hair-poster.jpg',
   label: 'A family hair moment',
 };
 
