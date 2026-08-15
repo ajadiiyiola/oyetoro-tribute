@@ -63,23 +63,44 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
 
   const begin = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio || isReady) return;
+    if (!audio) return;
+
     audio.preload = 'auto';
-    audio.muted = isMuted;
-    const playPromise = audio.play();
-    if (playPromise) {
-      playPromise
+    audio.muted = false;
+
+    const startPlayback = () => {
+      audio
+        .play()
         .then(() => {
           setIsReady(true);
           if (!isMuted) fadeTo(audio, BASE_VOLUME, 1400);
         })
         .catch(() => {
-          // Autoplay was blocked. Keep isReady false so a later
-          // user interaction can retry playback.
           setIsReady(false);
         });
+    };
+
+    if (audio.readyState >= 2) {
+      startPlayback();
+    } else {
+      audio.addEventListener('canplay', startPlayback, { once: true });
+      audio.load();
     }
-  }, [isMuted, isReady]);
+  }, [isMuted]);
+
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      begin();
+    };
+
+    window.addEventListener('pointerdown', handleFirstInteraction, {
+      once: true,
+    });
+
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+    };
+  }, [begin]);
 
   const toggleMute = useCallback(() => {
     const audio = audioRef.current;

@@ -9,7 +9,7 @@ const OPENING = [
   'I just want to take a moment to sincerely appreciate you and say thank you for everything you\u2019ve done for me and my family.',
   'You have been such a blessing to us in so many ways, and honestly, I don\u2019t think I say it enough.',
   'You have always been there for me, always willing to come through whenever I need you. Your generosity and kindness are things I will never take for granted.',
-  'You have supported me, encouraged me, and shown up for me in ways that mean more to me than I can properly put into words. Even when you didn\u2019t have to, you always found a way to help\u2014and that says so much about the kind of person you are.',
+  'You have supported me, encouraged me, and shown up for me in ways that mean more to me than I can properly put into words. Even when you didn\u2019t have to, you always found a way to help and that says so much about the kind of person you are.',
 ];
 
 const I_SEE_LINES = [
@@ -27,7 +27,7 @@ const CLOSING = [
 const THANK_YOU_LINES = [
   'Thank you for always being there.',
   'Thank you for always coming through.',
-  'Thank you for being not just a friend, but an elder sister\u2014someone I can look up to, trust, and count on.',
+  'Thank you for being not just a friend, but an elder sister, someone I can look up to, trust, and count on.',
 ];
 
 const BLESSING = [
