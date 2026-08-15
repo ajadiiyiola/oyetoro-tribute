@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #A30F30;
+  color: #FBF8F5;
+}
+
+/* Editorial eyebrow label */
+.eyebrow {
+  @apply font-sans text-[11px] md:text-xs tracking-widest2 uppercase text-wine;
+}
+
+/* Magazine-style drop cap for the opening paragraph of an editorial spread */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-editorial);
+  font-size: 3.4em;
+  line-height: 0.82;
+  padding-right: 0.08em;
+  padding-top: 0.03em;
+  color: theme('colors.wine.DEFAULT');
+}
+
+/* Thin editorial rule */
+.rule {
+  @apply h-px bg-wine/25;
+}
+
+/* Focus states — always visible, never suppressed */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #A30F30;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide scrollbar on horizontal touch galleries while keeping it functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
