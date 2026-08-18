@@ -103,7 +103,7 @@ export function HorizontalMemoryGallery() {
     <section
       id={SECTION_IDS.memories}
       aria-label="A cinematic photo journey through memories"
-      className="relative w-full bg-paper-ivory"
+      className="scrapbook-page relative w-full bg-paper-ivory"
     >
       <div className="px-6 pb-10 pt-24 md:px-16 md:pb-0 md:pt-32">
         <EditorialHeading

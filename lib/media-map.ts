@@ -73,6 +73,30 @@ export const BACKGROUND_MUSIC = {
   artist: 'Shania Twain',
 };
 
+
+export const VOICE_NOTES = {
+  mummy: {
+    src: '/audio/mummy-message.mp3',
+    label: "Mummy's Message",
+    note: 'A message from Mummy',
+  },
+  baby: {
+    src: '/audio/baby-message.mp3',
+    label: "Baby's Message",
+    note: 'A little voice in the family scrapbook',
+  },
+  brother: {
+    src: '/audio/brother-message.mp3',
+    label: "Brother's Message",
+    note: 'A message from her brother',
+  },
+  sister: {
+    src: '/audio/sister-message.mp3',
+    label: "Her Sister's Message",
+    note: 'A message from the person who made this tribute',
+  },
+} as const;
+
 export const SECTION_IDS = {
   hero: 'hero',
   apology: 'apology',

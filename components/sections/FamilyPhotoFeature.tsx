@@ -33,9 +33,9 @@ export function FamilyPhotoFeature({
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-          className="relative aspect-[4/5] w-full md:aspect-[16/10]"
+          className="relative aspect-[4/5] w-full bg-scrapbook-cream p-3 md:aspect-[16/10] md:p-5 scrapbook-card"
         >
-          <Image src={src} alt={alt} fill sizes="100vw" style={{ objectFit: 'cover' }} />
+          <Image src={src} alt={alt} fill sizes="100vw" style={{ objectFit: 'contain' }} />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}

@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { FAMILY_FULL_IMAGE, FAMILY_GIRLS_IMAGE, SECTION_IDS } from '@/lib/media-map';
+import { FAMILY_FULL_IMAGE, FAMILY_GIRLS_IMAGE, SECTION_IDS, VOICE_NOTES } from '@/lib/media-map';
+import { VoiceNoteCard } from '@/components/media/VoiceNoteCard';
 import { useMusic } from '@/lib/MusicContext';
 
 export function FinalFamilySection() {
@@ -24,7 +25,7 @@ export function FinalFamilySection() {
       id={SECTION_IDS.closing}
       ref={ref}
       aria-label="Closing"
-      className="w-full bg-paper py-24 md:py-32"
+      className="scrapbook-page w-full bg-paper py-24 md:py-32"
     >
       <div className="mx-auto grid max-w-5xl gap-4 px-6 md:grid-cols-2 md:gap-6 md:px-16">
         <motion.div
@@ -34,7 +35,7 @@ export function FinalFamilySection() {
           transition={{ duration: 1.6 }}
           className="relative aspect-[4/5] w-full"
         >
-          <Image src={FAMILY_FULL_IMAGE.src} alt={FAMILY_FULL_IMAGE.alt} fill sizes="50vw" style={{ objectFit: 'cover' }} />
+          <Image src={FAMILY_FULL_IMAGE.src} alt={FAMILY_FULL_IMAGE.alt} fill sizes="50vw" style={{ objectFit: 'contain' }} />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -43,7 +44,7 @@ export function FinalFamilySection() {
           transition={{ duration: 1.6, delay: 0.3 }}
           className="relative aspect-[4/5] w-full"
         >
-          <Image src={FAMILY_GIRLS_IMAGE.src} alt={FAMILY_GIRLS_IMAGE.alt} fill sizes="50vw" style={{ objectFit: 'cover' }} />
+          <Image src={FAMILY_GIRLS_IMAGE.src} alt={FAMILY_GIRLS_IMAGE.alt} fill sizes="50vw" style={{ objectFit: 'contain' }} />
         </motion.div>
       </div>
 
@@ -52,12 +53,23 @@ export function FinalFamilySection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, delay: 0.5 }}
-        className="mt-16 bg-wine-deep py-16 text-center md:mt-24 md:py-20"
+        className="mt-16 bg-scrapbook-berry py-16 text-center md:mt-24 md:py-20"
       >
         <p className="font-serif text-3xl italic text-paper sm:text-4xl md:text-6xl">
           With love, always.
         </p>
       </motion.div>
+      <div className="mt-16 px-6 md:mt-24 md:px-16">
+        <p className="mb-5 text-center font-sans text-[10px] uppercase tracking-widest2 text-scrapbook-berry/65">
+          A final message
+        </p>
+        <VoiceNoteCard
+          src={VOICE_NOTES.sister.src}
+          label={VOICE_NOTES.sister.label}
+          note={VOICE_NOTES.sister.note}
+          rotate="1deg"
+        />
+      </div>
     </section>
   );
 }

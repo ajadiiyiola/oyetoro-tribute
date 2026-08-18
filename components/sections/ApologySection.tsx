@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { EditorialHeading } from '@/components/editorial/EditorialHeading';
 import { CinematicImage } from '@/components/media/CinematicImage';
-import { SECTION_IDS, GALLERY_IMAGES } from '@/lib/media-map';
+import { SECTION_IDS, GALLERY_IMAGES, VOICE_NOTES } from '@/lib/media-map';
+import { VoiceNoteCard } from '@/components/media/VoiceNoteCard';
 
 const PARAGRAPHS = [
   'I sincerely want to apologize for hurting your feelings and for the way I handled things. I understand why you felt disrespected and left out, especially when it came to decisions that I should have carried you along with.',
@@ -21,7 +22,7 @@ export function ApologySection() {
   const image = GALLERY_IMAGES[0];
 
   return (
-    <section id={SECTION_IDS.apology} aria-labelledby="apology-heading" className="w-full bg-paper">
+    <section id={SECTION_IDS.apology} aria-labelledby="apology-heading" className="scrapbook-page w-full bg-paper">
       {/* Mobile-first: full-bleed image opens the spread, editorial text follows below */}
       <div className="relative">
         <CinematicImage
@@ -73,7 +74,7 @@ export function ApologySection() {
       </div>
 
       {/* Full-screen editorial moment: wine background, white typography */}
-      <div className="flex min-h-[70svh] w-full items-center justify-center bg-wine-deep px-6 text-center">
+      <div className="flex min-h-[70svh] w-full items-center justify-center bg-scrapbook-berry px-6 text-center">
         <motion.p
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -95,6 +96,20 @@ export function ApologySection() {
         >
           {EMPHASIZED_CLOSE}
         </motion.p>
+      </div>
+
+      <div className="px-6 pb-24 md:px-16 md:pb-32">
+        <div className="mx-auto max-w-2xl">
+          <p className="mb-5 text-center font-sans text-[10px] uppercase tracking-widest2 text-scrapbook-berry/65">
+            A voice from the family
+          </p>
+          <VoiceNoteCard
+            src={VOICE_NOTES.mummy.src}
+            label={VOICE_NOTES.mummy.label}
+            note={VOICE_NOTES.mummy.note}
+            rotate="-1.5deg"
+          />
+        </div>
       </div>
     </section>
   );

@@ -37,19 +37,19 @@ export function Navigation({ visible }: { visible: boolean }) {
           aria-expanded={open}
           aria-controls="site-menu"
           aria-label={open ? 'Close menu' : 'Open menu'}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full border border-wine/25 bg-paper/70 backdrop-blur-sm transition-colors hover:border-wine/50"
+          className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full border border-scrapbook-berry/20 bg-scrapbook-cream/80 backdrop-blur-sm transition-colors hover:border-scrapbook-rose/50"
         >
           <motion.span
             animate={{ rotate: open ? 45 : 0, y: open ? 5 : 0 }}
-            className="block h-px w-4 bg-wine"
+            className="block h-px w-4 bg-scrapbook-berry"
           />
           <motion.span
             animate={{ opacity: open ? 0 : 1 }}
-            className="block h-px w-4 bg-wine"
+            className="block h-px w-4 bg-scrapbook-berry"
           />
           <motion.span
             animate={{ rotate: open ? -45 : 0, y: open ? -5 : 0 }}
-            className="block h-px w-4 bg-wine"
+            className="block h-px w-4 bg-scrapbook-berry"
           />
         </button>
       </div>
@@ -62,7 +62,7 @@ export function Navigation({ visible }: { visible: boolean }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-30 flex items-center justify-center bg-wine-deep"
+            className="fixed inset-0 z-30 flex items-center justify-center bg-scrapbook-berry"
           >
             <ul className="flex w-full max-w-sm flex-col gap-1 px-8">
               {LINKS.map((link, i) => (

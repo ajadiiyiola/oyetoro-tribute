@@ -18,7 +18,7 @@ export function HeroPortrait() {
     <section
       id={SECTION_IDS.hero}
       aria-label="Hero portrait"
-      className="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-wine-deep"
+      className="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-scrapbook-cream"
     >
       <motion.div
         initial={{ opacity: 0, scale: 1.08, filter: 'blur(18px)' }}
@@ -28,14 +28,26 @@ export function HeroPortrait() {
       >
         <Image
           src={HERO_IMAGE.src}
-          alt={HERO_IMAGE.alt}
+          alt=""
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
+          className="scale-110 blur-2xl opacity-30"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-wine-deep via-wine-deep/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-wine-deep/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-scrapbook-berry/10" />
+        <div className="absolute inset-0 flex items-center justify-center px-4 py-8 md:px-10 md:py-12">
+          <div className="scrapbook-photo relative h-full w-full max-w-6xl overflow-hidden">
+            <Image
+              src={HERO_IMAGE.src}
+              alt={HERO_IMAGE.alt}
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: 'contain', objectPosition: 'center' }}
+            />
+          </div>
+        </div>
       </motion.div>
 
       {/* Text integrated into the composition, overlapping the image edge */}
@@ -45,7 +57,7 @@ export function HeroPortrait() {
         transition={{ duration: 1.2, delay: 1, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 w-full px-6 pb-14 md:px-16 md:pb-20"
       >
-        <p className="font-sans text-[11px] uppercase tracking-widest2 text-champagne-soft md:text-xs">
+        <p className="font-sans text-[11px] uppercase tracking-widest2 text-scrapbook-butter md:text-xs">
           Volume One
         </p>
         <h1 className="mt-3 max-w-3xl font-serif text-[13vw] font-light leading-[0.95] text-paper sm:text-6xl md:text-8xl">

@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { EditorialHeading } from '@/components/editorial/EditorialHeading';
 import { ScrollReveal } from '@/components/editorial/ScrollReveal';
-import { SECTION_IDS } from '@/lib/media-map';
+import { SECTION_IDS, VOICE_NOTES } from '@/lib/media-map';
+import { VoiceNoteCard } from '@/components/media/VoiceNoteCard';
 
 const OPENING = [
   'I just want to take a moment to sincerely appreciate you and say thank you for everything you\u2019ve done for me and my family.',
@@ -37,7 +38,7 @@ const BLESSING = [
 
 export function AppreciationSection() {
   return (
-    <section id={SECTION_IDS.appreciation} aria-labelledby="appreciation-heading" className="w-full bg-paper-warm">
+    <section id={SECTION_IDS.appreciation} aria-labelledby="appreciation-heading" className="scrapbook-page w-full bg-paper-warm">
       <div className="px-6 py-20 md:px-16 md:py-32">
         <div className="mx-auto max-w-3xl">
           <EditorialHeading eyebrow="A Letter of Appreciation" title="Gratitude" id="appreciation-heading" align="center" />
@@ -53,7 +54,7 @@ export function AppreciationSection() {
       </div>
 
       {/* Major typography moment — full-bleed wine background, per the brief */}
-      <div className="flex min-h-[100svh] w-full flex-col items-center justify-center bg-wine-deep px-6 py-24 text-center">
+      <div className="flex min-h-[100svh] w-full flex-col items-center justify-center bg-scrapbook-berry px-6 py-24 text-center">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,6 +116,18 @@ export function AppreciationSection() {
               I love and appreciate you so much.
             </p>
           </ScrollReveal>
+
+          <div className="mt-20">
+            <p className="mb-5 text-center font-sans text-[10px] uppercase tracking-widest2 text-scrapbook-berry/65">
+              Another voice from the family
+            </p>
+            <VoiceNoteCard
+              src={VOICE_NOTES.brother.src}
+              label={VOICE_NOTES.brother.label}
+              note={VOICE_NOTES.brother.note}
+              rotate="1.2deg"
+            />
+          </div>
         </div>
       </div>
     </section>
