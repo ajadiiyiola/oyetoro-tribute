@@ -11,7 +11,7 @@ import {
 import { BACKGROUND_MUSIC } from './media-map';
 
 const BASE_VOLUME = 0.165;
-const DUCK_VOLUME = 0.165;
+const DUCK_VOLUME = 0.08;
 const FADE_STEP_MS = 40;
 
 type MusicContextValue = {
